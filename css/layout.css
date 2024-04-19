@@ -40,13 +40,13 @@ s {
   left: 0;
   border-bottom: 1px solid;
 }
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .page .head {
     position: fixed;
     top: 0;
     animation: showHead 0.4s forwards;
   }
-  .page .head[data-show=false] {
+  .page .head:not([data-show]) {
     animation: hideHead 0.4s forwards;
   }
   .about,
@@ -55,7 +55,7 @@ s {
     font-weight: 400 !important;
   }
   .menu-nav,
-  #head-about {
+  .head-right .head-item {
     display: none;
   }
   .post-widget {
@@ -64,22 +64,20 @@ s {
   #bar-wrap-toggle {
     display: inline-block;
   }
-  #index-content {
-    width: 100%;
-  }
   .page .main {
     margin-top: 65px;
   }
-  .menu-bar-head {
+  .menubar-head {
     display: block;
     position: fixed;
     left: 0px;
     top: 65px;
+    height: calc(100vh - 65px);
     width: 100%;
     border-top: 1px solid;
     box-shadow: 0 5px 10px;
   }
-  .menu-bar-head[data-show=false] {
+  .menubar-head:not([data-show]) {
     display: none;
   }
   #post {
@@ -150,24 +148,30 @@ s {
     }
 }
 }
-.page .main {
+.main {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  max-width: 1000px;
+  max-width: content-max-width;
+  display: grid;
+  grid-template-columns: minmax(75%, 800px) auto;
+  grid-column-gap: 20px;
 }
-.main > .post {
-  width: 85%;
-  float: left;
+.main[data-page="post"] {
+  padding: 40px 0;
 }
-.main > .post .article-entry p {
+.main[data-page="home"] {
+  padding: unset;
+}
+.main[data-page="tag"] {
+  display: block;
+}
+.main[data-page="category"],
+.main[data-page="archive"] {
+  display: block;
+}
+.main .post .article-entry p {
   line-height: 1.5em;
-}
-.main > .post .article-entry a,
-.main > .post .article-entry a:visited {
-  text-decoration: underline dashed;
-  text-decoration-thickness: 1px;
-  text-underline-position: under;
 }
 .article-tag-list-item {
   display: inline;
@@ -179,35 +183,41 @@ s {
 .article-entry li {
   font-size: 20px;
   line-height: 2rem;
-  text-indent: 2em;
 }
 .article-entry ul {
+  margin-left: 2em;
+  padding-left: 2em;
   padding-bottom: 0.75em;
 }
 .article-entry ul li {
-  list-style: disc inside;
+  list-style: disc;
+}
+.article-entry ul li p {
+  text-indent: 0;
 }
 .article-entry ul ul li {
-  list-style: circle inside;
-  padding-left: 2em;
+  list-style: circle;
 }
 .article-entry ol {
+  padding-left: 2em;
   padding-bottom: 0.75em;
 }
 .article-entry ol li {
-  list-style: decimal inside;
+  list-style: decimal;
+}
+.article-entry ol li p {
+  text-indent: 0;
 }
 .page .footer-nav {
   display: block;
   margin: 30px auto 0px;
   width: 100%;
-  float: left;
 }
 .page .footer-nav .footer {
   margin: 0 auto;
   padding: 20px 0;
   border-top: 1px solid;
-  max-width: 1000px;
+  max-width: content-max-width;
   width: 90%;
   overflow: hidden;
 }
@@ -249,4 +259,26 @@ s {
   display: inline-block;
   width: 16px;
   height: 16px;
+}
+.post-meta {
+  font-family: default-font-family;
+  margin-bottom: 10px;
+}
+.post-meta .post-date {
+  display: inline-block;
+  margin-right: 10px;
+}
+.post-meta .post-date .post-time {
+  font-family: 'Raleway', Georgia, 'Times New Roman', Times, serif;
+}
+.post-meta .post-tag {
+  display: inline-block;
+  margin: 0 10px;
+}
+.post-meta .post-tag a {
+  text-decoration: none;
+}
+.post-meta .post-visit {
+  display: inline-block;
+  margin: 0 10px;
 }

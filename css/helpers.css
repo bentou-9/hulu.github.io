@@ -3,6 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto Serif SC&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto Sans SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto Serif SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
 .text-indent-none {
   text-indent: 0 !important;
 }
@@ -582,6 +587,12 @@
 }
 .fw-900 {
   font-weight: 900;
+}
+.font-sans {
+  font-family: 'Noto Sans', 'Noto Sans SC';
+}
+.font-serif {
+  font-family: 'Noto Serif', 'Noto Serif SC', sans-serif;
 }
 .post p .warning-banner {
   display: block;

@@ -1,17 +1,14 @@
 .tag-title {
   max-width: content-max-width;
-  margin: 0.5em auto 0.5em auto;
+  margin-top: 20px;
+  margin-bottom: 0.5em;
+  font-size: content-font-size;
 }
 .tags-wrap {
-  max-width: content-max-width;
-  margin: 0 auto;
-}
-.tags-wrap .tags {
-  padding-bottom: 0.5em;
+  margin-top: 20px;
 }
 .tags-wrap .tags a {
-  padding-right: 10px;
-  line-height: 25px;
+  padding-right: 0.25em;
   display: inline-block;
 }
 .tags-wrap .one-tag-list .tag-text {
@@ -20,12 +17,7 @@
 }
 .tags-wrap .one-tag-list .post-preview {
   margin-bottom: 0.5em;
-}
-.tags-wrap .one-tag-list .post-preview .tag-item-date {
-  display: block;
-  float: left;
-}
-.tags-wrap .one-tag-list .post-preview .post-title {
-  display: block;
-  text-indent: 2em;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 2em;
 }
